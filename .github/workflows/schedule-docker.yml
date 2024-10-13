@@ -1,0 +1,24 @@
+name: Run Python Program (Build Docker Image on the Fly)
+
+on:
+  schedule:
+    # Runs at 8AM UTC every day (adjust as needed)
+    - cron: '0 8 * * *'
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Build the Docker image on the fly
+      - name: Build Docker Image
+        run: |
+          docker build -t hello-world-image .
+
+      # Run the Docker container using the built image
+      - name: Run Docker Container
+        run: docker run hello-world-image
