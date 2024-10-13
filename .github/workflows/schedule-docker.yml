@@ -3,7 +3,7 @@ name: Run Python Program (Build Docker Image on the Fly)
 on:
   schedule:
     # Runs at 8AM UTC every day (adjust as needed)
-    - cron: '0 8 * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   run-script:
